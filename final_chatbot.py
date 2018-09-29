@@ -1,7 +1,4 @@
 
-# coding: utf-8
-
-# In[1]:
 
 
 import csv
@@ -14,14 +11,6 @@ from pandas import DataFrame as df
 from scipy.stats import trim_mean, kurtosis
 from scipy.stats.mstats import mode, gmean, hmean
 
-
-# In[ ]:
-
-
-
-
-
-# In[2]:
 
 
 data=pandas.read_csv('C:\\Users\\1385\\Desktop\\context_table_aegis (1).csv',sep=",")
@@ -106,17 +95,12 @@ def delete(text):
     return(text)
 
 
-# In[3]:
-
 
 data.head()
 x=data["response"].count()
 y=data["context"]
 
 #plt.plot(x, y, linewidth=2.0)
-
-
-# In[4]:
 
 
 #getting data1 as the output with FAQ as reponsetype
@@ -155,19 +139,13 @@ network=data.loc[data["context"]=="network"]
 network
 
 
-# In[5]:
-
 
 account
 
 
-# In[6]:
-
 
 slow
 
-
-# In[7]:
 
 
 
@@ -176,7 +154,6 @@ data1 = data1.reset_index(drop=True)
 data2=data1["response"]
 
 
-# In[8]:
 
 
 #extracting all the questions:
@@ -190,23 +167,15 @@ for i in range(0,len(data2)):
     Questions.append(t)
 
 
-# In[9]:
-
 
 Questions[1][1]
 
-
-# In[10]:
 
 
 for j in range(0,len(Questions)):
     for i in range(0,len(Questions[j])):
         Quest=print((Questions[j][i]).strip( ))
     
-    
-
-
-# In[20]:
 
 
 input1=[]
@@ -217,13 +186,9 @@ for j in range(0,len(Questions)):
         
 
 
-# In[21]:
-
 
 input1
 
-
-# In[22]:
 
 
 #all the answers from the reponse cleaning and appending to reesponse list
@@ -238,15 +203,12 @@ for i in range(0,len(data2)):
     response.append(r)
 
 
-# In[23]:
-
 
 final_response=[]
 for i in range(0,len(data2)):
     final_response.append(response[i].split("Answers"))
 
 
-# In[24]:
 
 
 output=[]
@@ -257,8 +219,6 @@ for j in range(0,len(final_response)):
         
 
 
-# In[25]:
-
 
 dic=[]
 for i in range(1,len(input1)):
@@ -266,8 +226,6 @@ for i in range(1,len(input1)):
     dic.append(output[i])
     
 
-
-# In[27]:
 
 
 import xlwt
@@ -285,14 +243,10 @@ book.save(name)
 book.save(TemporaryFile())
 
 
-# In[18]:
-
 
 string=dic
 string
 
-
-# In[40]:
 
 
 from chatterbot import ChatBot
@@ -303,8 +257,6 @@ chatbot.set_trainer(ListTrainer)
 chatbot.train(conversation)
         
 
-
-# In[41]:
 
 
 def conv(data):
@@ -318,18 +270,11 @@ def conv(data):
     return(response)
 
 
-# In[2]:
-
 
 def anyother(data):
             x=conv(data)
             return(x)
     
-
-
-# In[3]:
-
-
 
 mobile_no=["9595","9898"]
 while True:
@@ -355,19 +300,7 @@ while True:
         else:
             print("thank you very much ! I hope i have been of some assistance to you")
     else:
-        print("Sorry you need to register")       
-    
-    
-            
-        
-            
-            
-        
-
-
-# In[ ]:
-
-
+        print("Sorry you need to register")      
 
 print(known_users)
         elif remove=="n":
